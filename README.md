@@ -22,24 +22,24 @@ This example prints Hello World! the output file
   #include <log2file/log2file.hpp>
   #define DEBUG
 
-  LOG("Hello World!") // prints Hello World!
+  L2Flog("Hello World!") // prints Hello World!
 ```
 
 This example does not print Hello World!
 ```
   #include <log2file/log2file.hpp>
 
-  LOG("Hello World!") // does not print Hello World!
+  L2Flog("Hello World!") // does not print Hello World!
 ```
 
 
 Each of the macros inside of log2file.hpp look like this:
 ```
   #ifdef DEBUG
-  #define LOGln(out) log2file::logln(out)
+  #define L2Flog(message) log2file::log(message)
   #endif
   #ifndef DEBUG
-  #define LOGln(out)
+  #define L2Flog(out)
   #endif
 ```
 
