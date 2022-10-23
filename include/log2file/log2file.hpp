@@ -72,7 +72,7 @@ template <class T> void subLogValue(std::string message, T value) {
 
 // section
 #ifdef DEBUG
-#define L2Fsecton(sectionTitle) log2file::section(sectionTitle)
+#define L2Fsection(sectionTitle) log2file::section(sectionTitle)
 #endif
 #ifndef DEBUG
 #define L2Fsection(sectionTitle)
@@ -80,7 +80,7 @@ template <class T> void subLogValue(std::string message, T value) {
 
 // subSection
 #ifdef DEBUG
-#define L2FsubSecton(sectionTitle) log2file::subSection(sectionTitle)
+#define L2FsubSection(sectionTitle) log2file::subSection(sectionTitle)
 #endif
 #ifndef DEBUG
 #define L2FsubSection(sectionTitle)
