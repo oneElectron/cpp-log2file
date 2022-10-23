@@ -45,5 +45,7 @@ test
 data/
 testData/
 output.log
-/vkVersion
-/l2fvector
+L2Fstart
+L2Fsection
+L2FsubSection
+L2Flist
