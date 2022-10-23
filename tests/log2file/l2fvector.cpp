@@ -2,8 +2,8 @@
 #include <vector>
 
 int main(){
-  //L2Fstart("Hello");
-  //std::vector<std::string> strings = { "hello", "world", "!" };
+  L2Fstart("Hello");
+  std::vector<std::string> strings = { "hello", "world", "!" };
 
-  //L2Flist(std::vector<std::string>, "strings", strings);
+  L2Flist(std::vector<std::string>, "strings", strings);
 }
