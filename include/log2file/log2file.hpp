@@ -46,6 +46,13 @@ template <class T> void logValue(std::string message, T value) {
     outputFile << "\t" << message << ": " << value << std::endl;
     outputFile.close();
 }
+
+template <class T> void subLogValue(std::string message, T value) {
+    std::fstream outputFile;
+    outputFile.open(L2F_OUTPUT_FILE, std::ios::app);
+    outputFile << "\t\t" << message << ": " << value << std::endl;
+    outputFile.close();
+}
 }  // namespace log2file
 
 // start
@@ -90,8 +97,16 @@ template <class T> void logValue(std::string message, T value) {
 
 // logValue
 #ifdef DEBUG
-#define L2FlogValue(message, value) log2file::log(message, value)
+#define L2FlogValue(message, value) log2file::logValue(message, value)
 #endif
 #ifndef DEBUG
 #define L2FlogValue(message, value)
+#endif
+
+// logValue
+#ifdef DEBUG
+#define L2FsubLogValue(message, value) log2file::subLogValue(message, value)
+#endif
+#ifndef DEBUG
+#define L2FsubLogValue(message, value)
 #endif
