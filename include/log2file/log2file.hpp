@@ -26,6 +26,13 @@ void subSection(std::string sectionTitle) {
     outputFile.close();
 }
 
+void newline() {
+    std::fstream outputFile;
+    outputFile.open(L2F_OUTPUT_FILE, std::ios::app);
+    outputFile << std::endl;
+    outputFile.close();
+}
+
 void log(std::string message) {
     std::fstream outputFile;
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);
@@ -77,6 +84,14 @@ template <class T> void subLogValue(std::string message, T value) {
 #endif
 #ifndef DEBUG
 #define L2FsubSection(sectionTitle)
+#endif
+
+// subSection
+#ifdef DEBUG
+#define L2Fnewline() log2file::newline()
+#endif
+#ifndef DEBUG
+#define L2Fnewline()
 #endif
 
 // log
