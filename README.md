@@ -4,6 +4,7 @@ A dead simple header only logging system.
 Info:
 - The library only works with template functions so C is not supported.
 - As of now I have only tested it with -std=c++17.
+- Currently only g++ is supported (clang spits out linker errors)
 
 # Installing
 as of now my library is only available through my own tap. My reasons for this are outlined below

@@ -39,3 +39,11 @@
 
 # For MacOS users:
 .DS_Store
+
+# For tests
+test
+data/
+testData/
+output.log
+/vkVersion
+/l2fvector
