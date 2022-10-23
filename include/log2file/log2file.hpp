@@ -112,16 +112,16 @@ template <class T> void subLogValue(std::string message, T value) {
 
 // logValue
 #ifdef DEBUG
-#define L2FlogValue(message, value) log2file::logValue(message, value)
+#define L2FlogValue(type, message, value) log2file::logValue<type>(message, value)
 #endif
 #ifndef DEBUG
-#define L2FlogValue(message, value)
+#define L2FlogValue(type, message, value)
 #endif
 
-// logValue
+// logSubValue
 #ifdef DEBUG
-#define L2FsubLogValue(message, value) log2file::subLogValue(message, value)
+#define L2FsubLogValue(type, message, value) log2file::subLogValue<type>(message, value)
 #endif
 #ifndef DEBUG
-#define L2FsubLogValue(message, value)
+#define L2FsubLogValue(type, message, value)
 #endif

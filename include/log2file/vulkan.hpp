@@ -46,8 +46,8 @@ template <class T> void extensions(std::string message, std::vector<T> extension
 
 // extensions
 #ifdef DEBUG
-#define VkL2Fextensions(message) log2file::vulkan::extensions(message)
+#define VkL2Fextensions(type, message) log2file::vulkan::extensions<type>(message)
 #endif
 #ifndef DEBUG
-#define VkL2Fextensions(message)
+#define VkL2Fextensions(type, message)
 #endif
