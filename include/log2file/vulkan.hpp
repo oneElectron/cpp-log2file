@@ -21,18 +21,6 @@ void version(uint32_t version) {
   outputFile.close();
 }
 
-template <class T> void extensions(std::string message, std::vector<T> extensions) {
-  std::fstream outputFile;
-  outputFile.open(L2F_OUTPUT_FILE, std::ios::app);
-  outputFile << "\t" << message << ":" << "\n";
-  for (VkExtensionProperties& iextension : extensions) {
-      outputFile << "\t\t" << iextension.extensionName << "\n";
-  }
-  outputFile << std::endl;
-  outputFile.close();
-}
-
-
 }  // namespace vulkan
 }  // namespace log2file
 
@@ -44,10 +32,3 @@ template <class T> void extensions(std::string message, std::vector<T> extension
 #define VkL2Fversion(message)
 #endif
 
-// extensions
-#ifdef DEBUG
-#define VkL2Fextensions(type, message) log2file::vulkan::extensions<type>(message)
-#endif
-#ifndef DEBUG
-#define VkL2Fextensions(type, message)
-#endif

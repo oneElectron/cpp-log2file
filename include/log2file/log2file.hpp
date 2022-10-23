@@ -60,6 +60,17 @@ template <class T> void subLogValue(std::string message, T value) {
     outputFile << "\t\t" << message << ": " << value << std::endl;
     outputFile.close();
 }
+
+template <class T> void list(std::string message, std::vector<T> extensions) {
+  std::fstream outputFile;
+  outputFile.open(L2F_OUTPUT_FILE, std::ios::app);
+  outputFile << "\t" << message << ":" << "\n";
+  for (VkExtensionProperties& iextension : extensions) {
+      outputFile << "\t\t" << iextension.extensionName << "\n";
+  }
+  outputFile << std::endl;
+  outputFile.close();
+}
 }  // namespace log2file
 
 // start
@@ -125,3 +136,12 @@ template <class T> void subLogValue(std::string message, T value) {
 #ifndef DEBUG
 #define L2FsubLogValue(type, message, value)
 #endif
+
+// list
+#ifdef DEBUG
+#define VkL2Flist(type, message, list) log2file::list<type>(message, list)
+#endif
+#ifndef DEBUG
+#define VkL2Flist(type, message, list)
+#endif
+
