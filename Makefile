@@ -1,4 +1,5 @@
 STD = -std=c++17
+CXX = g++
 
 all: L2Fstart L2Fsection L2FsubSection L2Flist
 
@@ -16,13 +17,13 @@ clean:
 	@if [ -a L2Flist ]; then rm L2Flist; fi;
 
 L2Fstart:
-	g++ $(STD) tests/log2file/L2Fstart.cpp -o L2Fstart -DDEBUG
+	$(CXX) $(STD) tests/log2file/L2Fstart.cpp -o L2Fstart -DDEBUG
 
 L2Fsection:
-	g++ $(STD) tests/log2file/L2Fsection.cpp -o L2Fsection -DDEBUG
+	$(CXX) $(STD) tests/log2file/L2Fsection.cpp -o L2Fsection -DDEBUG
 
 L2FsubSection:
-	g++ $(STD) tests/log2file/L2FsubSection.cpp -o L2FsubSection -DDEBUG
+	$(CXX) $(STD) tests/log2file/L2FsubSection.cpp -o L2FsubSection -DDEBUG
 
 L2Flist:
-	g++ $(STD) tests/log2file/L2Flist.cpp -o L2Flist -DDEBUG
+	$(CXX) $(STD) tests/log2file/L2Flist.cpp -o L2Flist -DDEBUG
