@@ -51,5 +51,5 @@ debug:
 
 release:
   g++ example.cpp -o example # without output logging
-
+```
 
