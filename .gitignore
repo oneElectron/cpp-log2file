@@ -31,5 +31,11 @@
 *.out
 *.app
 
+# For vscode Users
+.vscode
+
+# For visual studio users
+.vs
+
 # For MacOS users:
 .DS_Store
