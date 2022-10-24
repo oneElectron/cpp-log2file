@@ -86,7 +86,7 @@
 #define L2FsubValue(message, value) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
     outputFile << "\t\t" << message << ": " << value << std::endl;\
-    outputFile.close();
+    outputFile.close();}
 #endif
 #ifndef DEBUG
 #define L2FsubLogValue(type, message, value)
