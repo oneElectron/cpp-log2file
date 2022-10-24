@@ -12,7 +12,8 @@ as of now my library is only available through my own tap. My reasons for this a
   brew tap oneelectron/oneelectron
   brew install --build-from-source cpp-log2file
 ```
-First, you need to use --build-from-source (-s), because making a bottle is pointless, it's a header only library, either way you are only copying the header files to homebrew's Cellar
+First, you need to use --build-from-source (-s), because making a bottle is pointless, it's a header only library, either way you are only copying the header files to homebrew's Cellar.
+
 I use my own tap because the project is new and not popular enought for me (or the homebrew maintainers) to justify cluttering the homebrew repo with my project.
 If the project gets enough supporters/popularity then I will be more then happy to submit the repo.
 
@@ -37,12 +38,15 @@ This example does not print Hello World!
 
 Each of the macros inside of log2file.hpp look like this:
 ```
-  #ifdef DEBUG
-  #define L2Flog(message) log2file::log(message)
-  #endif
-  #ifndef DEBUG
-  #define L2Flog(out)
-  #endif
+#ifdef DEBUG
+#define L2Fstart(message) {std::fstream outputFile;\
+    outputFile.open(L2F_OUTPUT_FILE, std::ios::out);\
+    outputFile << message << std::endl << std::endl;\
+    outputFile.close();}
+#endif
+#ifndef DEBUG
+#define L2Fstart(message)
+#endif
 ```
 
 # Define debug with gcc inside of a makefile

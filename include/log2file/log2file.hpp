@@ -1,4 +1,4 @@
-#include <fstream>
+#pragma once
 
 #ifndef L2F_OUTPUT_FILE
 #define L2F_OUTPUT_FILE "./output.log"

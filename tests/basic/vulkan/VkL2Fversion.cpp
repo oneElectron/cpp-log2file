@@ -1,3 +1,4 @@
+#include <fstream>
 #include "include/log2file/log2file.hpp"
 #include "include/log2file/vulkan.hpp"
 #include <vulkan/vulkan.h>

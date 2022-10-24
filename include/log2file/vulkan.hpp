@@ -1,6 +1,6 @@
+#pragma once
 #include <fstream>
 #include <vulkan/vulkan.h>
-#include <vector>
 
 #ifndef L2F_OUTPUT_FILE
 #define L2F_OUTPUT_FILE "./output.log"
