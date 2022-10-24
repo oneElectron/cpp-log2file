@@ -1,43 +1,32 @@
 STD = -std=c++17
 CXX = g++
 ARGS = -DDEBUG -I ./
-L2F = ./tests/basic/log2file/
-VkL2F = ./tests/basic/vulkan/
 
-basic: L2Fstart L2Fsection L2FsubSection L2Flist L2Fvalue
-
-vulkan: VkL2Fversion
-
-test: basic
-	./L2Fstart
-	./L2Fsection
-	./L2FsubSection
-	./L2Flist
-	./L2Fvalue
+default:
+	@echo ""
+	@echo "This is a makefile for testing purposes, if you are an end user you do not need this, just copy the include/log2file to your chosen include diretory or install it with a package manager"
+	@echo ""
+	@echo "make [test]"
+	@echo ""
+	@echo "tests:"
+	@echo ""
+	@echo "clean      > removes all test builds, and cleans output.log"
+	@echo "all        > builds and runs all tests"
+	@echo "log2file   > builds all log2file tests"
+	@echo "vulkan     > builds all vulkan tests"
 
 clean:
 	@if [ -a output.log ]; then rm output.log; touch output.log; fi;
-	@if [ -a L2Fstart ]; then rm L2Fstart; fi;
-	@if [ -a L2Fsection ]; then rm L2Fsection; fi;
-	@if [ -a L2FsubSection ]; then rm L2FsubSection; fi;
-	@if [ -a L2Flist ]; then rm L2Flist; fi;
-	@if [ -a L2Fvalue ]; then rm L2Fvalue; fi;
+	@if [ -a log2file ]; then rm log2file; fi;
+	@if [ -a vulkan ]; then rm vulkan; fi;
 
-L2Fstart:
-	$(CXX) $(STD) $(ARGS) $(L2F)L2Fstart.cpp -o L2Fstart
+all: log2file vulkan
+	./log2file
+	./vulkan
 
-L2Fsection:
-	$(CXX) $(STD) $(ARGS) $(L2F)L2Fsection.cpp -o L2Fsection
+log2file:
+	$(CXX) $(STD) $(ARGS) -o log2file tests/log2file/log2file.cpp tests/log2file/newlines.cpp
 
-L2FsubSection:
-	$(CXX) $(STD) $(ARGS) $(L2F)L2FsubSection.cpp -o L2FsubSection
+vulkan: 
+	$(CXX) $(STD) $(ARGS) -lvulkan tests/vulkan/vulkan.cpp -o vulkan
 
-L2Flist:
-	$(CXX) $(STD) $(ARGS) $(L2F)L2Flist.cpp -o L2Flist
-
-L2Fvalue:
-	$(CXX) $(STD) $(ARGS) $(L2F)L2Fvalue.cpp -o L2Fvalue
-
-# Vulkan
-VkL2Fversion:
-	$(CXX) $(STD) $(ARGS) -lvulkan $(VkL2F)VkL2Fversion.cpp -o VkL2Fversion

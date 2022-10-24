@@ -46,10 +46,5 @@ data/
 testData/
 output.log
 
-L2Fstart
-L2Fsection
-L2FsubSection
-L2Flist
-L2Fvalue
-
-VkL2Fversion
+/log2file
+/vulkan

@@ -63,7 +63,7 @@
 #ifdef DEBUG
 #define L2FsubLog(message) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
-    outputFile << "\t" << message << std::endl;\
+    outputFile << "\t\t\t" << message << std::endl;\
     outputFile.close();}
 #endif
 #ifndef DEBUG
