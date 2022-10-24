@@ -4,17 +4,6 @@
 #define L2F_OUTPUT_FILE "./output.log"
 #endif
 
-template <class T> void array(std::string message, T list) {
-  std::fstream outputFile;
-  outputFile.open(L2F_OUTPUT_FILE, std::ios::app);
-  outputFile << "\t" << message << ":" << "\n";
-  for (auto& item : list) {
-      outputFile << "\t\t" << item << "\n";
-  }
-  outputFile << std::endl;
-  outputFile.close();
-}
-
 // start
 #ifdef DEBUG
 #define L2Fstart(message) {std::fstream outputFile;\
@@ -28,10 +17,10 @@ template <class T> void array(std::string message, T list) {
 
 // section
 #ifdef DEBUG
-#define L2Fsection(sectionTitle) std::fstream outputFile;\
+#define L2Fsection(sectionTitle) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
     outputFile << "" << "-- " << sectionTitle << " --" << std::endl;\
-    outputFile.close();
+    outputFile.close();}
 #endif
 #ifndef DEBUG
 #define L2Fsection(sectionTitle)
@@ -39,10 +28,10 @@ template <class T> void array(std::string message, T list) {
 
 // subSection
 #ifdef DEBUG
-#define L2FsubSection(sectionTitle) std::fstream outputFile;\
+#define L2FsubSection(sectionTitle) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
     outputFile << "\t" << "-- " << sectionTitle << " --" << std::endl;\
-    outputFile.close();
+    outputFile.close();}
 #endif
 #ifndef DEBUG
 #define L2FsubSection(sectionTitle)
@@ -50,10 +39,10 @@ template <class T> void array(std::string message, T list) {
 
 // subSection
 #ifdef DEBUG
-#define L2Fnewline() std::fstream outputFile;\
+#define L2Fnewline() {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
     outputFile << std::endl;\
-    outputFile.close();
+    outputFile.close();}
 #endif
 #ifndef DEBUG
 #define L2Fnewline()
@@ -72,10 +61,10 @@ template <class T> void array(std::string message, T list) {
 
 // subLog
 #ifdef DEBUG
-#define L2FsubLog(message) std::fstream outputFile;\
+#define L2FsubLog(message) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
     outputFile << "\t" << message << std::endl;\
-    outputFile.close();
+    outputFile.close();}
 #endif
 #ifndef DEBUG
 #define L2FsubLog(message)
@@ -83,10 +72,10 @@ template <class T> void array(std::string message, T list) {
 
 // logValue
 #ifdef DEBUG
-#define L2Fvalue(message, value) std::fstream outputFile;\
+#define L2Fvalue(message, value) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
     outputFile << "\t" << message << ": " << value << std::endl;\
-    outputFile.close();
+    outputFile.close();}
 #endif
 #ifndef DEBUG
 #define L2FlogValue(type, message, value)
@@ -94,7 +83,7 @@ template <class T> void array(std::string message, T list) {
 
 // logSubValue
 #ifdef DEBUG
-#define L2FsubValue(type, message, value) std::fstream outputFile;\
+#define L2FsubValue(message, value) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
     outputFile << "\t\t" << message << ": " << value << std::endl;\
     outputFile.close();
@@ -105,14 +94,14 @@ template <class T> void array(std::string message, T list) {
 
 // list
 #ifdef DEBUG
-#define L2Flist(message, list) std::fstream outputFile;\
+#define L2Flist(message, list) {std::fstream outputFile;\
   outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
   outputFile << "\t" << message << ":" << "\n";\
   for (auto& item : list) {\
       outputFile << "\t\t" << item << "\n";\
   }\
   outputFile << std::endl;\
-  outputFile.close();
+  outputFile.close();}
 #endif
 #ifndef DEBUG
 #define L2Flist(type, message, list)
