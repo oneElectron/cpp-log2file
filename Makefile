@@ -1,11 +1,12 @@
 STD = -std=c++17
 CXX = g++
-ARGS = -DDEBUG -I ./include
+ARGS = -DDEBUG -I ./
 L2F = ./tests/basic/log2file/
+VkL2F = ./tests/basic/vulkan/
 
 basic: L2Fstart L2Fsection L2FsubSection L2Flist L2Fvalue
 
-vulkan: 
+vulkan: VkL2Fversion
 
 test: basic
 	./L2Fstart
@@ -38,4 +39,5 @@ L2Fvalue:
 	$(CXX) $(STD) $(ARGS) $(L2F)L2Fvalue.cpp -o L2Fvalue
 
 # Vulkan
-vkL2F
+VkL2Fversion:
+	$(CXX) $(STD) $(ARGS) -lvulkan $(VkL2F)VkL2Fversion.cpp -o VkL2Fversion
