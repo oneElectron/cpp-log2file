@@ -4,6 +4,13 @@ A dead simple header only logging system.
 Info:
 - C is not supported.
 
+Pros:
+- Dead simple
+- Easy to understand / use
+
+Cons:
+- Masive (I mean massive) performace penalty (on if DEBUG is defined)
+
 # Installing
 as of now my library is only available through my own tap. My reasons for this are outlined below
 ```
