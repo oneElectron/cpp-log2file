@@ -74,7 +74,7 @@
 #ifdef DEBUG
 #define L2Fvalue(message, value) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
-    outputFile << "\t" << message << ": " << value << std::endl;\
+    outputFile << "\t" << message << value << std::endl;\
     outputFile.close();}
 #endif
 #ifndef DEBUG
@@ -85,7 +85,7 @@
 #ifdef DEBUG
 #define L2FsubValue(message, value) {std::fstream outputFile;\
     outputFile.open(L2F_OUTPUT_FILE, std::ios::app);\
-    outputFile << "\t\t" << message << ": " << value << std::endl;\
+    outputFile << "\t\t" << message << value << std::endl;\
     outputFile.close();}
 #endif
 #ifndef DEBUG
